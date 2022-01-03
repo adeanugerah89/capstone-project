@@ -1,0 +1,54 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+apply from: '../shared-dependencies.gradle'
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        applicationId "com.anugerah.movieclub"
+        minSdk 21
+        targetSdk 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\"${base_url}\""
+        buildConfigField "String", "IMAGE_URL", "\"${image_url}\""
+        buildConfigField "String", "API_KEY", "\"${api_key}\""
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    dynamicFeatures = [':favorite']
+}
+
+dependencies {
+    implementation project(":core")
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+}

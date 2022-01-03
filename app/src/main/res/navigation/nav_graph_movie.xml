@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/navHomeFragment">
+
+    <fragment
+        android:id="@+id/navHomeFragment"
+        android:name="com.anugerah.movieclub.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/navSearchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/navFavoriteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/navSettingFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailMovieFragment"
+            app:destination="@id/navDetailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navFavoriteFragment"
+        android:name="com.anugerah.movieclub.favorite.favorite.FavoriteFragment"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_homeFragment"
+            app:destination="@id/navHomeFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailMovieFragment"
+            app:destination="@id/navDetailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navSearchFragment"
+        android:name="com.anugerah.movieclub.search.SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_homeFragment"
+            app:destination="@id/navHomeFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailMovieFragment"
+            app:destination="@id/navDetailMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navSettingFragment"
+        android:name="com.anugerah.movieclub.setting.SettingFragment"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_settingFragment_to_homeFragment"
+            app:destination="@id/navHomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navDetailMovieFragment"
+        android:name="com.anugerah.movieclub.detail.DetailMovieFragment"
+        tools:layout="@layout/fragment_detail_movie">
+        <argument
+            android:name="movie"
+            app:argType="com.anugerah.movieclub.core.domain.model.Movie" />
+        <action
+            android:id="@+id/action_detailMovieFragment_to_homeFragment"
+            app:destination="@id/navHomeFragment" />
+        <action
+            android:id="@+id/action_detailMovieFragment_to_searchFragment"
+            app:destination="@id/navSearchFragment" />
+        <action
+            android:id="@+id/action_detailMovieFragment_to_favoriteFragment"
+            app:destination="@id/navFavoriteFragment" />
+    </fragment>
+</navigation>
