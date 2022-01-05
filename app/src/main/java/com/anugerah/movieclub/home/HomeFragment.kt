@@ -105,6 +105,8 @@ class HomeFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding?.appBarLayout?.removeAllViewsInLayout()
+        binding?.rvMovie?.adapter = null
         _binding = null
     }
 

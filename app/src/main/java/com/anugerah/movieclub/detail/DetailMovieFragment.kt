@@ -73,6 +73,7 @@ class DetailMovieFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding?.appBar?.removeAllViewsInLayout()
         _binding = null
     }
 }
